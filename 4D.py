@@ -168,7 +168,7 @@ class GUI4D:
             if self.co == 'xy':
                 self.axmin, self.axmax, self.aymin, self.aymax = -1, 1, -1, 1
             elif self.co == 'rt':
-                self.axmin, self.axmax, self.aymin, self.aymax = 0, 1, -np.pi, np.pi
+                self.axmin, self.axmax, self.aymin, self.aymax = 0.01, 1, -np.pi, np.pi
             self.xmin, self.xmax, self.ymin, self.ymax, self.zmin, self.zmax, self.wmin, self.wmax = -2, 2, -2, 2, -2, 2, -2, 2
         elif self.fn == "exp(x)":
             self.f = lambda x: np.exp(x)
