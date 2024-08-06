@@ -109,7 +109,7 @@ class GUI4D:
         fig = self.pltcplxfun(wc)
         self.canvas = FigureCanvasTkAgg(fig, self.wd)
         self.canvas.draw()
-        self.canvas.get_tk_widget().place(x=20, y=20)
+        self.canvas.get_tk_widget().place(x=20, y=20, width=960, height=480)
     
     def restoreDraw(self):
         #revert
