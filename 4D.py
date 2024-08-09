@@ -18,7 +18,6 @@ class GUI4D:
         self.wd.title("4D Visualize")
         self.wd.geometry("1000x720")
         self.wd.resizable(False, False)
-        self.canvas = tk.Canvas()
         self.inipic()
         self.btn()
         self.wd.protocol("WM_DELETE_WINDOW", self.wdcls)
@@ -35,7 +34,12 @@ class GUI4D:
         self.normmu = (self.wmin + self.wmax) / 2
         self.normsigma = self.wmax - self.normmu
         self.x, self.y, self.z, self.w = self.xyzw()
-        self.drawpic()
+        #draw
+        wc = self.wclr(self.w)
+        fig = self.pltcplxfun(wc)
+        self.canvas = FigureCanvasTkAgg(fig, self.wd)
+        self.canvas.draw()
+        self.canvas.get_tk_widget().place(x=20, y=20, width=960, height=480)
     
     def xyzw(self):
         #axis
@@ -105,6 +109,7 @@ class GUI4D:
     
     def drawpic(self):
         plt.close('all')
+        self.canvas.get_tk_widget().destroy()
         wc = self.wclr(self.w)
         fig = self.pltcplxfun(wc)
         self.canvas = FigureCanvasTkAgg(fig, self.wd)
